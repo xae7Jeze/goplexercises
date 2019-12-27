@@ -18,6 +18,8 @@ const (
 	BaseURL         = "https://api.github.com/"
 	IssuesSearchURL = BaseURL + "search/issues"
 	ReposURL        = BaseURL + "repos/"
+	HTTPUser        = "_GITHUB_USERNAME_"
+	HTTPToken       = "__GITHUB_ACCESS_TOKEN_"
 	perPage         = "100"
 )
 
