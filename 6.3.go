@@ -15,13 +15,6 @@ import (
 	"time"
 )
 
-func printRed(s string) {
-	fmt.Printf("%c%c%c%c%c%s%c%c%c%c",
-		033, 0133, 063, 061, 0155,
-		s,
-		033, 0133, 060, 0155)
-}
-
 func main() {
 	x := &IntSet{}
 	y := &IntSet{}
