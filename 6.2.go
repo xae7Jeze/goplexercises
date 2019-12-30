@@ -1,9 +1,6 @@
 /*
-Exercise 6.1: Implement these additional methods:
-func (*IntSet) Len() int // return the number of elements
-func (*IntSet) Remove(x int) // remove x from the set
-func (*IntSet) Clear() // remove all elements from the set
-func (*IntSet) Copy() *IntSet // return a copy of the set
+Exercise 6.2: Define a variadic (*IntSet).AddAll(...int) method that
+allows a list of values to be added, such as s.AddAll(1, 2, 3).
 */
 
 package main
