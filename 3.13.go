@@ -4,6 +4,10 @@ compactly as you can.
 */
 package main
 
+import (
+	"fmt"
+)
+
 const (
 	KB = 1000
 	MB = 1000 * KB
@@ -16,7 +20,7 @@ const (
 )
 
 const (
-	_ = 1 << (10 * iota)
+	B = 1 << (10 * iota)
 	KiB
 	MiB
 	GiB
@@ -28,4 +32,6 @@ const (
 )
 
 func main() {
+	fmt.Printf("%v\n", MiB)
+
 }
