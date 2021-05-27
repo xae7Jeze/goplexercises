@@ -27,8 +27,7 @@ import (
 const (
 	BaseURL      = "https://xkcd.com/"
 	JsonFileName = "info.0.json"
-	DBFile       = "/home/harald/go/src/xkcd.db"
-	SQLiteFile   = "/home/harald/go/src/xkcd.sqlite"
+	SQLiteFile   = "/home/harald/go/data/xkcd.sqlite"
 )
 
 var (
@@ -374,7 +373,7 @@ func DisplayComic(c *Comic) error {
 func usage() {
 	fmt.Fprintf(os.Stderr,
 		"\nUsage: %[1]s -s <search term>\n"+
-			"       %[1]s -d <ComicNr> (Display comic number ComicNr\n"+
+			"       %[1]s -d <ComicNr> (Display comic number <ComicNr>)\n"+
 			"       %[1]s -u (Updates local database)\n\n",
 		os.Args[0])
 }
