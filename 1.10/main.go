@@ -29,7 +29,7 @@ func main() {
 	fmt.Printf("Fetching '%v' twice:\n", os.Args[1])
 	fI, err := fetch(os.Args[1])
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "%s: An error occured: %v\n", err)
+		fmt.Fprintf(os.Stderr, "%s: An error occured: %v\n", os.Args[0], err)
 		os.Exit(1)
 	}
 	args = append(args, fI.file)
@@ -37,7 +37,7 @@ func main() {
 	fmt.Printf("First run: Elapsed: %v ms, Bytes: %v\n", fI.elapsed, fI.nbytes)
 	fI, err = fetch(os.Args[1])
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "%s: An error occured: %v\n", err)
+		fmt.Fprintf(os.Stderr, "%s: An error occured: %v\n", os.Args[0], err)
 		os.Exit(1)
 	}
 	fmt.Printf("Second run: Elapsed: %v ms, Bytes: %v\n", fI.elapsed, fI.nbytes)
@@ -45,8 +45,8 @@ func main() {
 	defer os.Remove(fI.file)
 	cmd := exec.Command("diff", args...)
 	outS := ""
-	if out, err := cmd.Output(); err != nil {
-		fmt.Fprintf(os.Stderr, "%s: An error occured: %v\n", err)
+	if out, err := cmd.Output(); (err != nil) && (cmd.ProcessState.ExitCode() > 1) {
+		fmt.Fprintf(os.Stderr, "%s: An error occured: %v\n", os.Args[0], err)
 		os.Exit(1)
 	} else {
 		outS = string(out)
